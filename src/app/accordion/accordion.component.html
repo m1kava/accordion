@@ -1,18 +1,46 @@
-<div *ngFor="let item of items[2]" class="acd">
-    <div class="acd-title">
-        <span class='title'>{{ item.categoryName }}</span>
-        <span class='title-count'>+ {{ item.eventsCount }}</span>
+<!-- <div class="acd">
+    <div *ngFor="let category of accordionData" class="acd-title">
+        <span class='title'>{{ category.name }}</span>
+        <span class='title-count'>+ {{ category.eventsCount }}</span>
+
+        <div *ngFor="let country of category.children" class="acd-dropdown">
+            <span class="dropdown-title">ENGLAND</span>
+            <span class="dropdown-count">+ 146</span>
+
+            <div *ngFor="let championship of country.children" class="acd-dropdown-dropdown">
+                <span>{{ championship.name }}</span>
+            </div>
+        </div>
     </div>
 
-    <div class="acd-dropdown">
-        <span class="dropdown-title">ENGLAND</span>
-        <span class="dropdown-count">+ 146</span>
-    </div>
+    
 
-    <div class="acd-dropdown">
-        <span class="dropdown-title">SPAIN</span>
-        <span class="dropdown-count">+ 14</span>
-    </div>
+    
+</div> -->
 
-    <div class="acd-dropdown-dropdown"></div>
-</div>
+<ul class="acd">
+    <li *ngFor="let category of accordionData" class="acd-title">
+        <div class="acd-title-box">
+            <span class="title">{{ category.name }}</span>
+            <span class="title-count">{{ category.eventsCount }}</span>
+        </div>
+        <ul>
+            <li *ngFor="let country of category.children" class="acd-dropdown">
+                <div class="acd-dropdown-box">
+                    <span class="dropdown-title">{{ country.name }}</span>
+                    <span class="dropdown-count">{{ country.eventsCount }}</span>
+                </div>
+                <ul>
+                    <li *ngFor="let championship of country.children" class="acd-dropdown-dropdown">
+                        <div class="acd-dropdown-dropdown-box">
+                            <span class="dropdown-dropdown-check">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </span>
+                            <span class="dropdown-dropdown-title">{{ championship.name }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
