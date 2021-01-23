@@ -85,4 +85,22 @@ export class AccordionComponent implements OnInit {
       })
       .sort((a, b) => a.sortOrder - b.sortOrder);
   }
+
+  activeIndex: number;
+  toggleClass(i: number): void {
+    if(this.activeIndex==i) {  
+        this.activeIndex=-1; 
+      } else {     
+        this.activeIndex=i;
+      }
+  }
+
+  activeIndexInner: number;
+  toggleClassInner(j: number): void {
+    if(this.activeIndexInner==j) {    
+        this.activeIndexInner=-1; 
+      } else {     
+        this.activeIndexInner=j;
+      }
+  }
 }
